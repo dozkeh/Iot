@@ -1,0 +1,11 @@
+<h2>Sensor Dashboard</h2>
+<ul class="sensors">
+  <li *ngFor="let sensor of sensors"
+    [class.selected]="sensor === selectedSensor"
+    (click)="onSelect(sensor)">
+    <span class="badge">{{sensor.id}}</span> {{sensor.name}}
+  </li>
+</ul>
+
+<app-sensor-detail [sensor]='selectedSensor'></app-sensor-detail>
+<app-messages></app-messages>
