@@ -1,9 +1,9 @@
 import { Sensor} from './sensor';
 
 export const SENSORS: Sensor[] = [
-{ id: 1, name: 'TemperatureKitchen', value: 21 },
-{ id: 2, name: 'TemperatureOutside', value: 10 },
-{ id: 3, name: 'TemperatureWater', value: 70 },
-{ id: 4, name: 'TemperatureBathroom', value: 17 },
-{ id: 5, name: 'TemperatureBedroom', value: 18 }
+{ id: 1, kind: 'Temperature', location: 'kitchen', value: 21 },
+{ id: 2, kind: 'Temperature', location: 'outside', value: 10 },
+{ id: 3, kind: 'Temperature', location: 'bathroom', value: 70 },
+{ id: 4, kind: 'Temperature', location: 'boiler', value: 17 },
+{ id: 5, kind: 'Temperature', location: 'bedroom', value: 18 }
 ];

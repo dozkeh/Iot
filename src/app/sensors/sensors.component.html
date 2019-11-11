@@ -1,11 +1,11 @@
-<h2>Sensor Dashboard</h2>
-<ul class="sensors">
-  <li *ngFor="let sensor of sensors"
-    [class.selected]="sensor === selectedSensor"
-    (click)="onSelect(sensor)">
-    <span class="badge">{{sensor.id}}</span> {{sensor.name}}
-  </li>
-</ul>
+<div class="container">
+  <h2>Sensor Dashboard</h2>
+</div>
+<div class="container" >
+<div class="flex-container" fxLayout="row" fxLayout.sm="column"  fxLayoutGap="10px">
+      <app-sensor-detail *ngFor="let sensor of sensors"
+      [sensor]="sensor"></app-sensor-detail>
+</div>
+</div>
 
-<app-sensor-detail [sensor]='selectedSensor'></app-sensor-detail>
 <app-messages></app-messages>

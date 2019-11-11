@@ -16,5 +16,4 @@ export class SensordataService {
     this.messageService.add('Sensordata got from Azure');
     return of(SENSORS);
 }
-
 }
