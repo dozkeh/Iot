@@ -1,9 +1,11 @@
 <div *ngIf="sensor">
 
         <mat-card class="sensordetail-card">
-            <mat-card-title>{{sensor.location | uppercase}}</mat-card-title>
-            <mat-card-subtitle>{{sensor.kind | uppercase}}</mat-card-subtitle>
-            <mat-card-content>{{sensor.value}}</mat-card-content>
+            <mat-card-title>{{sensor.Location | uppercase}}</mat-card-title>
+            <mat-card-subtitle>{{sensor.Kind | uppercase}}</mat-card-subtitle>
+            <mat-card-content>
+                <p>{{sensor.Value}}</p>
+                </mat-card-content>
         </mat-card>
 </div>
     

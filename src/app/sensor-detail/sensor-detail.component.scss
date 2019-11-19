@@ -1,14 +1,17 @@
 .sensordetail-card {
-    border-radius: 10px;
+    border-radius: 0px;
     border-width: 5px;
     border-color: black;
     width: 150px;
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: rgb(195, 214, 233);
+    background-color: #e7f2f8;  
   }
   
   .sensordetail-header-image {
     background-color: #BBD8DC;
     background-size: auto;
   }
+p{
+    font-size: 24px;
+}

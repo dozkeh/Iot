@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Sensor } from '../sensor';
 import { SensordataService } from '../sensordata.service';
+import { ReplyAzure } from '../reply-azure';
+import { SensorRaw } from '../sensor-raw';
 
 @Component({
   selector: 'app-sensors',
@@ -9,7 +11,7 @@ import { SensordataService } from '../sensordata.service';
 })
 export class SensorsComponent implements OnInit {
 
-  sensors: Sensor[];
+  sensors: SensorRaw[];
   selectedSensor: Sensor;
 
   constructor(private sensordataService: SensordataService) { }
@@ -24,7 +26,8 @@ export class SensorsComponent implements OnInit {
 
   getSensors(): void {
     this.sensordataService.getSensors()
-    .subscribe(sensors => this.sensors = sensors);
+    .subscribe(replyAzure => { this.sensors = replyAzure.value; });
+    console.log(this.sensors);
   }
 }
 

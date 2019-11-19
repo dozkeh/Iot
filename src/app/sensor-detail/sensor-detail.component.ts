@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Sensor } from '../sensor';
+import { SensorRaw } from '../sensor-raw';
 
 @Component({
   selector: 'app-sensor-detail',
@@ -8,7 +9,7 @@ import { Sensor } from '../sensor';
 })
 export class SensorDetailComponent implements OnInit {
 
-  @Input() sensor: Sensor;
+  @Input() sensor: SensorRaw;
   constructor() { }
 
   ngOnInit() {
