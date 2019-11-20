@@ -11,7 +11,7 @@ import { SensorRaw } from '../sensor-raw';
 })
 export class SensorsComponent implements OnInit {
 
-  sensors: SensorRaw[];
+  sensors: SensorRaw[] = [];
   selectedSensor: Sensor;
 
   constructor(private sensordataService: SensordataService) { }
@@ -25,9 +25,9 @@ export class SensorsComponent implements OnInit {
   }
 
   getSensors(): void {
-    this.sensordataService.getSensors()
+    /*this.sensordataService.getSensors()
     .subscribe(replyAzure => { this.sensors = replyAzure.value; });
-    console.log(this.sensors);
+    console.log(this.sensors);*/
   }
 }
 

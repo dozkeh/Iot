@@ -6,6 +6,8 @@ import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { ReplyAzure } from './reply-azure';
 import { map } from 'rxjs/operators';
 import { SensorFactory } from './sensor-factory';
+import { SensorsComponent } from './sensors/sensors.component';
+import { SensorRaw } from './sensor-raw';
 
 @Injectable({
   providedIn: 'root'
@@ -13,26 +15,29 @@ import { SensorFactory } from './sensor-factory';
 
 export class SensordataService {
 
-  
+  public myResponse: SensorRaw[] = undefined;
+
   private azureDbUrl = 'https://myiotdb.table.core.windows.net';  // URL to azure database
   private sv = 'sv=2019-02-02';
   private ss = 'ss=bfqt';
   private srt = 'srt=sco';
   private sp = 'sp=rwdlacup';
-  private se = 'se=2019-11-19T19:16:12Z';
-  private st = 'st=2019-11-19T11:16:12Z';
+  private se = 'se=2019-11-20T22:40:16Z';
+  private st = 'st=2019-11-20T14:40:16Z';
   private spr = 'spr=https';
-  private sig = 'sig=RuFY%2Fhtz83PIDpNiGMG5VnWv%2FAwenvXVaCemjRfFC7Q%3D';
+  private sig = 'sig=Dd4Ol6CgWDv8BitTu%2BtGZo5hPllq6OYHV8oml3nEYRg%3D';
 
 
   constructor(private http: HttpClient, private messageService: MessageService) {
+    this.getSensors();
+    console.log(this.myResponse);
    }
 
    private log(message: string) {
     this.messageService.add(`SensorService: ${message}`);
    }
 
-   getSensors(): Observable<ReplyAzure> { 
+   getSensors(): void { 
    let headers = new HttpHeaders();
    headers = headers.append('Content-Type', 'application/json');
    headers = headers.append('Accept', 'application/json');
@@ -47,8 +52,9 @@ export class SensordataService {
         myReply.value.map(s => SensorFactory.fromRaw(s)),
       )
     );*/
+    response.subscribe(replyAzure => { this.myResponse = replyAzure.value; });
    this.log('got data from azure');
-   return response;
   }
+
 
 }
